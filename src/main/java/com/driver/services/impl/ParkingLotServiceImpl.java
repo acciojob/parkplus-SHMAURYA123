@@ -44,9 +44,8 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         else if (numberOfWheels<=4) {
             spot.setSpotType(SpotType.FOUR_WHEELER);
         }
-        else {
+        else if(numberOfWheels > 4)
             spot.setSpotType(SpotType.OTHERS);
-        }
 
         parkingLot.getSpotList().add(spot);
         parkingLotRepository1.save(parkingLot);
@@ -82,6 +81,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public void deleteParkingLot(int parkingLotId) {
-     parkingLotRepository1.deleteById(parkingLotId);
+
+        parkingLotRepository1.deleteById(parkingLotId);
     }
 }
